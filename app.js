@@ -3,6 +3,7 @@ const titleInput = document.querySelector("#title");
 const authorInput = document.querySelector("#author");
 const pagesInput = document.querySelector("#pages");
 const radioBtns = document.querySelectorAll("input[name='read-status']");
+const booksContainer = document.querySelector(".books-container");
 
 let myLibrary = [];
 
@@ -16,7 +17,7 @@ function Book(title, author, pages, read) {
 function addBookToLibrary(title, author, pages, read) {
   const book = new Book(title, author, pages, read);
   myLibrary.push(book);
-  console.log(myLibrary);
+  displayBooks(myLibrary);
 }
 
 function getSelectedRadioBtn(buttons) {
@@ -25,6 +26,23 @@ function getSelectedRadioBtn(buttons) {
       return button;
     }
   }
+}
+
+function displayBooks(array) {
+    booksContainer.textContent = "";
+    for(let book of array) {
+        const card = document.createElement("div");
+        const bookTitle = document.createElement("h3");
+        const bookAuthor = document.createElement("p");
+        const bookPages = document.createElement("p");
+        const bookReadStatus = document.createElement("p");
+        bookTitle.textContent = book.title;
+        bookAuthor.textContent = `By ${book.author}`;
+        bookPages.textContent = `${book.pages.toString()} pages`;
+        bookReadStatus.textContent = book.read ? "Completed" : "Not read yet";
+        card.append(bookTitle, bookAuthor, bookPages, bookReadStatus);
+        booksContainer.append(card);
+    }
 }
 
 bookForm.addEventListener("submit", (e) => {
