@@ -13,6 +13,12 @@ function Book(title, author, pages, read) {
     this.read = read;
 };
 
+function addBookToLibrary(title, author, pages, read) {
+    const book = new Book(title, author, pages, read);
+    myLibrary.push(book);
+    console.log(book);
+}
+
 bookForm.addEventListener("submit", e => {
     e.preventDefault();
     let titleValue = titleInput.value;
@@ -24,8 +30,6 @@ bookForm.addEventListener("submit", e => {
             isReadValue = radioBtn.value;
         }
     }
-    console.log(titleValue)
-    console.log(authorValue)
-    console.log(pagesValue)
-    console.log(isReadValue)
+
+    addBookToLibrary(titleValue, authorValue, pagesValue, isReadValue === "read" ? true : false);
 })
