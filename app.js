@@ -19,17 +19,20 @@ function addBookToLibrary(title, author, pages, read) {
   console.log(myLibrary);
 }
 
+function getSelectedRadioBtn(buttons) {
+  for (let button of buttons) {
+    if (button.checked) {
+      return button.value;
+    }
+  }
+}
+
 bookForm.addEventListener("submit", (e) => {
   e.preventDefault();
   let titleValue = titleInput.value;
   let authorValue = authorInput.value;
   let pagesValue = +pagesInput.value;
-  let isReadValue;
-  for (let radioBtn of radioBtns) {
-    if (radioBtn.checked) {
-      isReadValue = radioBtn.value;
-    }
-  }
+  let isReadValue = getSelectedRadioBtn(radioBtns);
   if (isReadValue === "read") {
     isReadValue = true;
   } else {
