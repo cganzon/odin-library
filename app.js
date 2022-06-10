@@ -22,7 +22,7 @@ function addBookToLibrary(title, author, pages, read) {
 function getSelectedRadioBtn(buttons) {
   for (let button of buttons) {
     if (button.checked) {
-      return button.value;
+      return button;
     }
   }
 }
@@ -32,7 +32,7 @@ bookForm.addEventListener("submit", (e) => {
   let titleValue = titleInput.value;
   let authorValue = authorInput.value;
   let pagesValue = +pagesInput.value;
-  let isReadValue = getSelectedRadioBtn(radioBtns);
+  let isReadValue = getSelectedRadioBtn(radioBtns).value;
   if (isReadValue === "read") {
     isReadValue = true;
   } else {
