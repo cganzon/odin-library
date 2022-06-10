@@ -30,10 +30,10 @@ bookForm.addEventListener("submit", (e) => {
       isReadValue = radioBtn.value;
     }
   }
-  addBookToLibrary(
-    titleValue,
-    authorValue,
-    pagesValue,
-    isReadValue === "read" ? true : false
-  );
+  if (isReadValue === "read") {
+    isReadValue = true;
+  } else {
+    isReadValue = false;
+  }
+  addBookToLibrary(titleValue, authorValue, pagesValue, isReadValue);
 });
