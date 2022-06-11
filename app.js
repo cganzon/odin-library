@@ -45,12 +45,14 @@ function createBookCard(book, index) {
   bookAuthor.textContent = `By ${book.author}`;
   bookPages.textContent = `${book.pages.toString()} pages`;
   bookReadStatus.textContent = book.read ? "Completed" : "Not read yet";
+
   deleteBtn.textContent = "Remove book";
   deleteBtn.setAttribute("data-num", index);
   deleteBtn.classList.add("delete-btn");
   readStatusBtn.textContent = "Change read status";
   readStatusBtn.setAttribute("data-num", index);
   readStatusBtn.classList.add("read-status-btn");
+  
   card.append(
     bookTitle,
     bookAuthor,
