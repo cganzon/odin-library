@@ -62,3 +62,10 @@ bookForm.addEventListener("submit", (e) => {
   }
   addBookToLibrary(titleValue, authorValue, pagesValue, isReadValue);
 });
+
+booksContainer.addEventListener("click", (e) => {
+  if (e.target.matches("button")) {
+    const bookIndex = +e.target.getAttribute("data-num");
+    console.log(bookIndex);
+  }
+});
