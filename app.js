@@ -22,6 +22,7 @@ function addBookToLibrary(title, author, pages, read) {
   const book = new Book(title, author, pages, read);
   myLibrary.push(book);
   displayBooks(myLibrary);
+  resetInputs();
 }
 
 function getSelectedRadioBtn(buttons) {
@@ -30,6 +31,15 @@ function getSelectedRadioBtn(buttons) {
       return button;
     }
   }
+}
+
+function resetInputs() {
+  titleInput.value = "";
+  authorInput.value = "";
+  pagesInput.value = "";
+  radioBtns.forEach(button => {
+    button.checked = false;
+  })
 }
 
 function createBookCard(book, index) {
@@ -52,7 +62,7 @@ function createBookCard(book, index) {
   readStatusBtn.textContent = "Change read status";
   readStatusBtn.setAttribute("data-num", index);
   readStatusBtn.classList.add("read-status-btn");
-  
+
   card.append(
     bookTitle,
     bookAuthor,
