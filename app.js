@@ -37,9 +37,9 @@ function resetInputs() {
   titleInput.value = "";
   authorInput.value = "";
   pagesInput.value = "";
-  radioBtns.forEach(button => {
+  radioBtns.forEach((button) => {
     button.checked = false;
-  })
+  });
 }
 
 function createBookCard(book, index) {
