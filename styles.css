@@ -11,3 +11,20 @@
 body {
     font-family: 'Roboto', sans-serif;
 }
+
+input,
+button {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+fieldset {
+    border: none;
+}
+
+.form-group label {
+    display: block;
+}
