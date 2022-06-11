@@ -18,6 +18,10 @@ Book.prototype.changeReadStatus = function () {
   this.read = !this.read;
 };
 
+const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, false);
+myLibrary.push(theHobbit);
+displayBooks(myLibrary);
+
 function addBookToLibrary(title, author, pages, read) {
   const book = new Book(title, author, pages, read);
   myLibrary.push(book);
