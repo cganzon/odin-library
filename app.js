@@ -14,6 +14,10 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+Book.prototype.changeReadStatus = function () {
+  this.read = !this.read;
+};
+
 function addBookToLibrary(title, author, pages, read) {
   const book = new Book(title, author, pages, read);
   myLibrary.push(book);
@@ -47,6 +51,7 @@ function displayBooks(array) {
     deleteBtn.setAttribute("data-num", i);
     deleteBtn.classList.add("delete-btn");
     readStatusBtn.textContent = "Change read status";
+    readStatusBtn.setAttribute("data-num", i);
     readStatusBtn.classList.add("read-status-btn");
     card.append(
       bookTitle,
@@ -65,6 +70,12 @@ function deleteBook(deleteIndex) {
   displayBooks(myLibrary);
 }
 
+function updateBookReadStatus(bookIndex) {
+  const foundBook = myLibrary.find((book, index) => index === bookIndex);
+  foundBook.changeReadStatus();
+  displayBooks(myLibrary);
+}
+
 bookForm.addEventListener("submit", (e) => {
   e.preventDefault();
   let titleValue = titleInput.value;
@@ -80,8 +91,12 @@ bookForm.addEventListener("submit", (e) => {
 });
 
 booksContainer.addEventListener("click", (e) => {
-  if (e.target.classList.contains("delete-btn")) {
+  if (e.target.matches("button")) {
     const bookIndex = +e.target.getAttribute("data-num");
-    deleteBook(bookIndex);
+    if (e.target.classList.contains("delete-btn")) {
+      deleteBook(bookIndex);
+    } else if (e.target.classList.contains("read-status-btn")) {
+      updateBookReadStatus(bookIndex);
+    }
   }
 });
