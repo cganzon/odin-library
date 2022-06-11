@@ -49,6 +49,11 @@ function displayBooks(array) {
   }
 }
 
+function deleteBook(deleteIndex) {
+  myLibrary = myLibrary.filter((book, index) => index !== deleteIndex);
+  displayBooks(myLibrary);
+}
+
 bookForm.addEventListener("submit", (e) => {
   e.preventDefault();
   let titleValue = titleInput.value;
@@ -66,6 +71,6 @@ bookForm.addEventListener("submit", (e) => {
 booksContainer.addEventListener("click", (e) => {
   if (e.target.matches("button")) {
     const bookIndex = +e.target.getAttribute("data-num");
-    console.log(bookIndex);
+    deleteBook(bookIndex);
   }
 });
