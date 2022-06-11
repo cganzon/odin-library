@@ -37,6 +37,7 @@ function displayBooks(array) {
     const bookPages = document.createElement("p");
     const bookReadStatus = document.createElement("p");
     const deleteBtn = document.createElement("button");
+    const readStatusBtn = document.createElement("button");
 
     bookTitle.textContent = array[i].title;
     bookAuthor.textContent = `By ${array[i].author}`;
@@ -45,7 +46,16 @@ function displayBooks(array) {
     deleteBtn.textContent = "X";
     deleteBtn.setAttribute("data-num", i);
     deleteBtn.classList.add("delete-btn");
-    card.append(bookTitle, bookAuthor, bookPages, bookReadStatus, deleteBtn);
+    readStatusBtn.textContent = "Change read status";
+    readStatusBtn.classList.add("read-status-btn");
+    card.append(
+      bookTitle,
+      bookAuthor,
+      bookPages,
+      bookReadStatus,
+      deleteBtn,
+      readStatusBtn
+    );
     booksContainer.append(card);
   }
 }
