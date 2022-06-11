@@ -44,6 +44,7 @@ function displayBooks(array) {
     bookReadStatus.textContent = array[i].read ? "Completed" : "Not read yet";
     deleteBtn.textContent = "X";
     deleteBtn.setAttribute("data-num", i);
+    deleteBtn.classList.add("delete-btn");
     card.append(bookTitle, bookAuthor, bookPages, bookReadStatus, deleteBtn);
     booksContainer.append(card);
   }
@@ -69,7 +70,7 @@ bookForm.addEventListener("submit", (e) => {
 });
 
 booksContainer.addEventListener("click", (e) => {
-  if (e.target.matches("button")) {
+  if (e.target.classList.contains("delete-btn")) {
     const bookIndex = +e.target.getAttribute("data-num");
     deleteBook(bookIndex);
   }
