@@ -56,8 +56,8 @@ function createBookCard(book, index) {
   const readStatusBtn = document.createElement("button");
 
   bookTitle.textContent = book.title;
-  bookAuthor.textContent = `By ${book.author}`;
-  bookPages.textContent = `${book.pages.toString()} pages`;
+  bookAuthor.textContent = `Author: ${book.author}`;
+  bookPages.textContent = `Pages: ${book.pages.toString()}`;
   bookReadStatus.textContent = book.read ? "Completed" : "Not read yet";
 
   readStatusBtn.textContent = "Change read status";
