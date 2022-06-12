@@ -60,20 +60,21 @@ function createBookCard(book, index) {
   bookPages.textContent = `${book.pages.toString()} pages`;
   bookReadStatus.textContent = book.read ? "Completed" : "Not read yet";
 
-  deleteBtn.textContent = "Remove book";
-  deleteBtn.setAttribute("data-num", index);
-  deleteBtn.classList.add("delete-btn");
   readStatusBtn.textContent = "Change read status";
   readStatusBtn.setAttribute("data-num", index);
   readStatusBtn.classList.add("read-status-btn");
+  deleteBtn.textContent = "Remove book";
+  deleteBtn.setAttribute("data-num", index);
+  deleteBtn.classList.add("delete-btn");
+  card.classList.add("card");
 
   card.append(
     bookTitle,
     bookAuthor,
     bookPages,
     bookReadStatus,
-    deleteBtn,
-    readStatusBtn
+    readStatusBtn,
+    deleteBtn
   );
   booksContainer.append(card);
 }
