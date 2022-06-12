@@ -29,6 +29,10 @@ button {
     background-color: #0075FF;
 }
 
+button:hover {
+    background-color: #298dff;
+}
+
 form {
     margin-bottom: 2rem;
 }
@@ -120,6 +124,10 @@ h2 {
 
 .delete-btn {
     background-color: #DA2828;
+}
+
+.delete-btn:hover {
+    background-color: #e64c4c;
 }
 
 @media(min-width: 900px) {
