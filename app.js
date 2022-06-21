@@ -7,16 +7,18 @@ const booksContainer = document.querySelector(".books-container");
 
 let myLibrary = [];
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-}
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
 
-Book.prototype.changeReadStatus = function () {
-  this.read = !this.read;
-};
+  changeReadStatus() {
+    this.read = !this.read;
+  }
+}
 
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, false);
 myLibrary.push(theHobbit);
